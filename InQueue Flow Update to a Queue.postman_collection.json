@@ -1,0 +1,324 @@
+{
+	"info": {
+		"_postman_id": "567763c1-4566-4b60-89bb-3e0a166cd2e6",
+		"name": "InQueue Flow Update to a Queue",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16207508"
+	},
+	"item": [
+		{
+			"name": "Get QueueID BY Queue Name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"pm.collectionVariables.set(\"userId\",jsonData.entities[0].id)\r",
+							"console.log(\"userId = \" +pm.collectionVariables.get(\"userId\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "lAIvJE85UJY42meZINYT_9PQxA7vg6zfdfWBT2WRLzt24JonNXqmnekUzqKkfj-pVjoQUxUZDV5q5aYLPFxQzQ",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "August 16",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "CIVt2AMgiXMOkOBCglcsbFFFPv5YdT2O2L-OTW3MEvs",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "15e71bf6-d492-4f93-b671-bd8313967eee",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://login.mypurecloud.com/oauth/token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.mypurecloud.com/api/v2/routing/queues?name={{Name}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"routing",
+						"queues"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "{{Name}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Queue Details",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);\r",
+							"jsonData.queueFlow.id=\"006707ee-9022-4c96-8be2-fc2fd49712ea\";\r",
+							"pm.collectionVariables.set(\"rowResponse\", JSON.stringify(jsonData))\r",
+							"console.log(\"rowResponse = \" +pm.collectionVariables.get(\"rowResponse\"));"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "lAIvJE85UJY42meZINYT_9PQxA7vg6zfdfWBT2WRLzt24JonNXqmnekUzqKkfj-pVjoQUxUZDV5q5aYLPFxQzQ",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "August 16",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "CIVt2AMgiXMOkOBCglcsbFFFPv5YdT2O2L-OTW3MEvs",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "15e71bf6-d492-4f93-b671-bd8313967eee",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://login.mypurecloud.com/oauth/token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "https://api.mypurecloud.com/api/v2/routing/queues/{{userId}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"routing",
+						"queues",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update a Queue",
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "tokenType",
+							"value": "bearer",
+							"type": "string"
+						},
+						{
+							"key": "accessToken",
+							"value": "lAIvJE85UJY42meZINYT_9PQxA7vg6zfdfWBT2WRLzt24JonNXqmnekUzqKkfj-pVjoQUxUZDV5q5aYLPFxQzQ",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "August 16",
+							"type": "string"
+						},
+						{
+							"key": "client_authentication",
+							"value": "header",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "CIVt2AMgiXMOkOBCglcsbFFFPv5YdT2O2L-OTW3MEvs",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "15e71bf6-d492-4f93-b671-bd8313967eee",
+							"type": "string"
+						},
+						{
+							"key": "accessTokenUrl",
+							"value": "https://login.mypurecloud.com/oauth/token",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{{rowResponse}}"
+				},
+				"url": {
+					"raw": "https://api.mypurecloud.com/api/v2/routing/queues/{{userId}}",
+					"protocol": "https",
+					"host": [
+						"api",
+						"mypurecloud",
+						"com"
+					],
+					"path": [
+						"api",
+						"v2",
+						"routing",
+						"queues",
+						"{{userId}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "oauth2",
+		"oauth2": [
+			{
+				"key": "addTokenTo",
+				"value": "header",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "jsonData",
+			"value": ""
+		},
+		{
+			"key": "rowResponse",
+			"value": ""
+		},
+		{
+			"key": "userId",
+			"value": ""
+		}
+	]
+}
