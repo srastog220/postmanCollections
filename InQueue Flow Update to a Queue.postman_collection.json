@@ -32,7 +32,7 @@
 						},
 						{
 							"key": "accessToken",
-							"value": "lAIvJE85UJY42meZINYT_9PQxA7vg6zfdfWBT2WRLzt24JonNXqmnekUzqKkfj-pVjoQUxUZDV5q5aYLPFxQzQ",
+							"value": "",
 							"type": "string"
 						},
 						{
@@ -52,12 +52,12 @@
 						},
 						{
 							"key": "clientSecret",
-							"value": "CIVt2AMgiXMOkOBCglcsbFFFPv5YdT2O2L-OTW3MEvs",
+							"value": "",
 							"type": "string"
 						},
 						{
 							"key": "clientId",
-							"value": "15e71bf6-d492-4f93-b671-bd8313967eee",
+							"value": "",
 							"type": "string"
 						},
 						{
